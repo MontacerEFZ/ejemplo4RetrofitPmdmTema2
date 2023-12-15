@@ -1,6 +1,8 @@
 package montacer.elfazazi.ejemplo4retrofit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import montacer.elfazazi.ejemplo4retrofit.PhotosActivity;
 import montacer.elfazazi.ejemplo4retrofit.R;
 import montacer.elfazazi.ejemplo4retrofit.modelos.Album;
 
@@ -45,6 +48,18 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumVH> {
         Album a = objects.get(position);
 
         holder.lbTitulo.setText(a.getTitulo());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PhotosActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("ALBUM_ID", a.getId());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
