@@ -37,7 +37,7 @@ public class PhotosActivity extends AppCompatActivity {
 
         listaPhotos = new ArrayList<>();
 
-        adapter = new PhotoAdapter(listaPhotos, R.layout.activity_photos, this);
+        adapter = new PhotoAdapter(listaPhotos, R.layout.photo_view_holder, this);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recycler.setLayoutManager(layoutManager);
